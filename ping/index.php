@@ -8,10 +8,10 @@
 // ===========================================================================
 
 // config must be set
-if( !file_exists( "config.php") ) {
+if( !file_exists( "../config.php") ) {
     die( "ERROR: config.php is missing" );
 }
-require( "config.php" );
+require( "../config.php" );
 
 // key must be sent via $_GET
 if( !isset( $_GET['key']) ) {

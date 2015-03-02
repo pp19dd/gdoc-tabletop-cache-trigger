@@ -4,7 +4,7 @@
 ######
 
 require 'open-uri'
-require 'json'
+# require 'json'
 
 dirty_key = ARGV[0]
 key = dirty_key.gsub(/.*key=(.*?)\&.*/,'\1')

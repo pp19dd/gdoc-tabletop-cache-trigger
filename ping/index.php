@@ -55,7 +55,12 @@ if( $config["main"]["master_key"] !== $_POST["master_key"] ) {
 // ===========================================================================
 
 
-# chdir( "/home/toolsvoa/www/data/{$folder}/" );
-# exec( "ruby /home/toolsvoa/www/data/fetch.rb \"https://docs.google.com/spreadsheet/pub?key={$key}&output=html\"", $out );
-exec( "ruby -e \"puts 'hi'\"", $out );
+chdir( $config["main"]["folder_data"] );
+exec(
+    "{$config["main"]["ruby"]} " .
+    "{$config["main"]["folder_home"]}/fetch.rb " .
+    "\"https://docs.google.com/spreadsheet/pub?key={$key}&output=html\"",
+    $out
+);
+
 print_r( $out );

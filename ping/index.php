@@ -64,9 +64,10 @@ if( $config["main"]["master_key"] !== $_POST["master_key"] ) {
 
 chdir( $config["main"]["folder_data"] );
 exec(
-    "{$config["main"]["ruby"]} " .
-    "{$config["main"]["folder_home"]}/fetch.rb " .
-    "\"https://docs.google.com/spreadsheet/pub?key={$key}&output=html\"",
+    "{$config["main"]["node"]} " .
+    "{$config["main"]["folder_home"]}/tabletop-node.js " .
+    "\"https://docs.google.com/spreadsheet/pub?key={$key}&output=html\"" .
+    "",
     $out
 );
 

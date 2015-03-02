@@ -12,5 +12,5 @@ if( $key === false ) {
     die( "Key not found" );
 }
 
-header( "Content-type: application/json" );
+header( "Content-type: application/x-javascript" );
 readfile($key);

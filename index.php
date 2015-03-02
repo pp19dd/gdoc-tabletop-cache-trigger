@@ -7,18 +7,19 @@
 // if everything checks out, runs fetch.rb and fetches a local data copy
 // ===========================================================================
 
+// config must be set
+if( !file_exists( "config.php") ) {
+    die( "ERROR: config.php is missing" );
+}
+require( "config.php" );
+
+// key must be sent via $_GET
 if( !isset( $_GET['key']) ) {
     die( "ERROR: key not specified" );
 }
 $key = trim(strip_tags($_GET['key']));
 
-if( !file_exists( "config.php") ) {
-    die( "ERROR: config.php is missing" );
-}
-
-require( "config.php" );
-
-// [T:F] - does the key exist in config.ini ?
+// key must be configured in config.php
 function verify_key($key) {
     global $config;
 
@@ -32,6 +33,21 @@ function verify_key($key) {
 
 if( !verify_key($key) ) {
     die( "ERROR: key {$key} is undefined" );
+}
+
+// master key must be sent via $_POST
+if( !isset( $_POST['master_key']) ) {
+    die( "ERROR: master key not provided" );
+}
+
+// master key must be set in config.php
+if( !isset( $config["main"]["master_key"] ) ) {
+    die( "ERROR: master key not set" );
+}
+
+// master keys must match
+if( $config["main"]["master_key"] !== $_POST["master_key"] ) {
+    die( "ERROR: provided master key doesn't match" );
 }
 
 // ===========================================================================

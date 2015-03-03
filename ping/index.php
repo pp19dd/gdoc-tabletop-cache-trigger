@@ -63,9 +63,9 @@ if( $config["main"]["master_key"] !== $_POST["master_key"] ) {
 
 // option: simple mode = false
 // default is true
-$simple = "false";
+$simple = "true";
 if( isset($_POST['simpleSheet']) ) {
-    if( $_POST['simpleSheet'] == "true" ) $simple = "true";
+    if( $_POST['simpleSheet'] == "false" ) $simple = "false";
 }
 
 $file = sprintf( "%s/%s.json", $config["main"]["folder_data"], $key );

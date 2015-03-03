@@ -72,6 +72,6 @@ $exec = sprintf(
 chdir( $config["main"]["folder_data"] );
 exec( $exec, $out );
 
-echo str_replace(" ", " <br/>", $exec);
-echo "<hr/>";
+#echo str_replace(" ", " <br/>", $exec);
+#echo "<hr/>";
 echo number_format(filesize($file)) . " bytes written";

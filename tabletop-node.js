@@ -7,7 +7,7 @@ if( process.argv.length != 3 ) {
 }
 
 Tabletop.init({
-    key: argv[2],
+    key: process.argv[2],
     callback: function(data, tabletop) {
         console.info( JSON.stringify(data) );
     },

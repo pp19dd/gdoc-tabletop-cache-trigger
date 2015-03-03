@@ -14,7 +14,7 @@ if( process.argv.length < 3 || process.argv.length > 4 ) {
 
 // default: assume simple=true, otherwise false
 var simple_sheet_option = true;
-if( process.argv.length == 3 ) {
+if( process.argv.length == 4 ) {
     if( process.argv[3] == "false" ) simple_sheet_option = false;
 }
 

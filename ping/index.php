@@ -66,7 +66,7 @@ chdir( $config["main"]["folder_data"] );
 exec(
     "{$config["main"]["node"]} " .
     "{$config["main"]["folder_home"]}/tabletop-node.js " .
-    "{$key} > " . $config["main"]["folder_data"] . $key . ".json"
+    "{$key} > " . $config["main"]["folder_data"] . $key . ".json",
     $out
 );
 

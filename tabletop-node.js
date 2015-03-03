@@ -6,7 +6,7 @@
 
 var Tabletop = require("./tabletop.js");
 
-if( process.argv.length != 3 || process.argv.length != 4 ) {
+if( process.argv.length < 3 || process.argv.length > 4 ) {
     console.info( "ERROR: need key\n" );
     console.info( "node tabletop-node.js [key] [true or false]" );
     process.exit();

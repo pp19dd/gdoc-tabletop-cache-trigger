@@ -17,7 +17,7 @@ $key_file = sprintf(
 );
 
 // convert key to a real file, if it works
-$key = realpath($key);
+$key = realpath($key_file);
 
 if( $key === false ) {
     die( "Key file not found" );

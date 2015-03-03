@@ -66,8 +66,7 @@ chdir( $config["main"]["folder_data"] );
 exec(
     "{$config["main"]["node"]} " .
     "{$config["main"]["folder_home"]}/tabletop-node.js " .
-    "\"https://docs.google.com/spreadsheet/pub?key={$key}&output=html\"" .
-    "",
+    "{$key} > " . $config["main"]["folder_data"] . $key . ".json"
     $out
 );
 

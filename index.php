@@ -10,11 +10,18 @@ if( !isset( $_GET['callback'] ) ) {
 }
 
 $key = basename(trim(strip_tags($_GET['key'])));
-$key = realpath($config["main"]["folder_data"] . $key);
+$key_file = sprintf(
+    "%s/%s.json",
+    $config["main"]["folder_data"],
+    $key
+);
+
+// convert key to a real file, if it works
+$key = realpath($key);
 
 if( $key === false ) {
-    die( "Key not found" );
+    die( "Key file not found" );
 }
 
 header( "Content-type: text/javascript" );
-printf( "%s(%s);", $_GET['callback'], file_get_contents($key . "json") );
+printf( "%s(%s);", $_GET['callback'], file_get_contents($key) );

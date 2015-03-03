@@ -61,9 +61,16 @@ if( $config["main"]["master_key"] !== $_POST["master_key"] ) {
 // everything worked, so trust $key
 // ===========================================================================
 
+// option: simple mode = false
+// default is true
+$simple = "false";
+if( isset($_POST['simpleSheet']) ) {
+    if( $_POST['simpleSheet'] == "true" ) $simple = "true";
+}
+
 $file = sprintf( "%s/%s.json", $config["main"]["folder_data"], $key );
 $exec = sprintf(
-    "%s %s/tabletop-node.js %s > {$file}",
+    "%s %s/tabletop-node.js %s {$simple} > {$file}",
     $config["main"]["node"],
     $config["main"]["folder_home"],
     $key

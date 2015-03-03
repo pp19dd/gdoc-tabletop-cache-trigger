@@ -61,16 +61,17 @@ if( $config["main"]["master_key"] !== $_POST["master_key"] ) {
 // everything worked, so trust $key
 // ===========================================================================
 
+$file = sprintf( "%s/%s.json", $config["main"]["folder_data"], $key );
 $exec = sprintf(
-    "%s %s/tabletop-node.js %s > %s/%s.json",
+    "%s %s/tabletop-node.js %s > {$file}",
     $config["main"]["node"],
     $config["main"]["folder_home"],
-    $key,
-    $config["main"]["folder_data"],
     $key
 );
 
 chdir( $config["main"]["folder_data"] );
 exec( $exec, $out );
-print_r( $out );
-echo $exec;
+
+echo str_replace(" ", " \n", $exec);
+echo "\n";
+echo number_format(filesize($file)) . " bytes written";
